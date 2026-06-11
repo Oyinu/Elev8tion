@@ -1,28 +1,28 @@
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.13 0.01 60);
-  --foreground: oklch(0.97 0.01 80);
-  --card: oklch(0.17 0.012 60);
-  --card-foreground: oklch(0.97 0.01 80);
-  --surface: oklch(0.19 0.014 60);
+  --background: oklch(0.94 0.01 80);
+  --foreground: oklch(0.18 0.015 60);
+  --card: oklch(0.97 0.008 80);
+  --card-foreground: oklch(0.18 0.015 60);
+  --surface: oklch(0.91 0.012 80);
 
-  --primary: oklch(0.82 0.18 70);
-  --primary-foreground: oklch(0.13 0.01 60);
-  --glow: oklch(0.88 0.2 75);
+  --primary: oklch(0.7 0.16 70);
+  --primary-foreground: oklch(0.97 0.01 80);
+  --glow: oklch(0.75 0.18 75);
 
-  --secondary: oklch(0.22 0.015 60);
-  --muted-foreground: oklch(0.66 0.02 70);
-  --accent: oklch(0.82 0.18 70);
+  --secondary: oklch(0.88 0.012 80);
+  --muted-foreground: oklch(0.45 0.02 70);
+  --accent: oklch(0.7 0.16 70);
 
-  --border: oklch(0.28 0.015 60);
+  --border: oklch(0.82 0.015 70);
 
   --gradient-elev: linear-gradient(
     135deg,
-    oklch(0.82 0.18 70),
-    oklch(0.7 0.2 45)
+    oklch(0.7 0.16 70),
+    oklch(0.62 0.18 45)
   );
-  --shadow-glow: 0 0 60px -10px oklch(0.82 0.18 70 / 0.5);
-  --shadow-elev: 0 30px 80px -30px oklch(0.82 0.18 70 / 0.4);
+  --shadow-glow: 0 0 60px -10px oklch(0.7 0.16 70 / 0.4);
+  --shadow-elev: 0 30px 80px -30px oklch(0.7 0.16 70 / 0.3);
 
   --font-display: "Archivo Black", "Inter", sans-serif;
   --font-sans: "Instrument Sans", "Inter", system-ui, sans-serif;
@@ -45,12 +45,12 @@ body {
   background-image:
     radial-gradient(
       ellipse 80% 50% at 50% -10%,
-      oklch(0.82 0.18 70 / 0.18),
+      oklch(0.7 0.16 70 / 0.15),
       transparent 60%
     ),
     radial-gradient(
       ellipse 60% 40% at 80% 100%,
-      oklch(0.7 0.2 45 / 0.12),
+      oklch(0.62 0.18 45 / 0.1),
       transparent 60%
     );
   background-attachment: fixed;
@@ -60,12 +60,12 @@ body {
     background-image:
       radial-gradient(
         ellipse 80% 50% at 50% -10%,
-        oklch(0.82 0.18 70 / 0.18),
+        oklch(0.7 0.16 70 / 0.15),
         transparent 60%
       ),
       radial-gradient(
         ellipse 80% 40% at 50% 100%,
-        oklch(0.7 0.2 45 / 0.12),
+        oklch(0.62 0.18 45 / 0.1),
         transparent 60%
       );
   }
@@ -113,8 +113,8 @@ img {
 }
 .grid-bg {
   background-image:
-    linear-gradient(oklch(0.97 0.01 80 / 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.97 0.01 80 / 0.04) 1px, transparent 1px);
+    linear-gradient(oklch(0.18 0.015 60 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.18 0.015 60 / 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 .shadow-glow {
@@ -171,8 +171,8 @@ header {
   right: 0;
   z-index: 50;
   backdrop-filter: blur(8px);
-  background: oklch(0.13 0.01 60 / 0.6);
-  border-bottom: 1px solid oklch(0.28 0.015 60 / 0.6);
+  background: oklch(0.94 0.01 80 / 0.7);
+  border-bottom: 1px solid var(--border);
 }
 .nav-inner {
   max-width: 80rem;
@@ -188,7 +188,18 @@ header {
   align-items: center;
   gap: 0.5rem;
 }
-
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+}
 .brand-name {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
@@ -248,7 +259,7 @@ nav.links a:hover {
 
 @media (max-width: 767px) {
   .hero {
-    padding-top: 15rem;
+    padding-top: 11rem;
   }
   .hero-bg-desktop {
     display: none;
@@ -318,18 +329,18 @@ nav.links a:hover {
 .hero-title {
   margin-top: 2rem;
   font-family: var(--font-display);
-  font-size: 18vw;
-  line-height: 0.85;
-  letter-spacing: -0.05em;
+  font-size: 13vw;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
 }
 @media (min-width: 640px) {
   .hero-title {
-    font-size: 16vw;
+    font-size: 11vw;
   }
 }
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 180px;
+    font-size: 110px;
   }
 }
 
@@ -340,6 +351,13 @@ nav.links a:hover {
   text-transform: uppercase;
   letter-spacing: 0.3em;
   color: var(--primary);
+}
+@media (max-width: 767px) {
+  .hero-tagline {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    line-height: 1.8;
+  }
 }
 .hero-copy {
   margin-top: 2rem;
@@ -355,7 +373,7 @@ nav.links a:hover {
   margin-bottom: 0;
 }
 .hero-copy .lead {
-  color: oklch(0.97 0.01 80 / 0.9);
+  color: oklch(0.18 0.015 60 / 0.9);
 }
 .hero-copy .mono {
   color: var(--primary);
@@ -400,12 +418,12 @@ nav.links a:hover {
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  background: oklch(0.19 0.014 60 / 0.6);
+  background: oklch(0.97 0.008 80 / 0.6);
   transition: all 0.2s;
 }
 .btn-outline:hover {
   background: var(--surface);
-  border-color: oklch(0.82 0.18 70 / 0.4);
+  border-color: oklch(0.7 0.16 70 / 0.4);
 }
 .badge-dashed {
   display: inline-flex;
@@ -429,9 +447,9 @@ nav.links a:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  border-top: 1px solid oklch(0.28 0.015 60 / 0.6);
-  border-bottom: 1px solid oklch(0.28 0.015 60 / 0.6);
-  background: oklch(0.13 0.01 60 / 0.7);
+  border-top: 1px solid oklch(0.82 0.015 70 / 0.6);
+  border-bottom: 1px solid oklch(0.82 0.015 70 / 0.6);
+  background: oklch(0.94 0.01 80 / 0.7);
   backdrop-filter: blur(8px);
   overflow: hidden;
 }
@@ -466,13 +484,21 @@ section {
   padding: 8rem 1.5rem;
 }
 .border-top {
-  border-top: 1px solid oklch(0.28 0.015 60 / 0.6);
+  border-top: 1px solid oklch(0.82 0.015 70 / 0.6);
 }
 .section-label {
   display: flex;
   align-items: baseline;
   gap: 1rem;
   margin-bottom: 3rem;
+}
+@media (max-width: 767px) {
+  .section-label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
 }
 .section-num {
   font-family: var(--font-mono);
@@ -485,9 +511,60 @@ section {
   font-size: 1.875rem;
   letter-spacing: -0.02em;
 }
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+}
 @media (min-width: 768px) {
   .section-title {
     font-size: 3rem;
+  }
+}
+
+/* ---------- Story ---------- */
+.story-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 48rem;
+}
+.story-lead {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+@media (max-width: 767px) {
+  .story-lead {
+    font-size: 1.375rem;
+  }
+}
+@media (min-width: 768px) {
+  .story-lead {
+    font-size: 2.25rem;
+  }
+}
+.story-body {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--muted-foreground);
+}
+@media (max-width: 767px) {
+  .story-body {
+    font-size: 1rem;
+  }
+}
+.story-closing {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+@media (max-width: 767px) {
+  .story-closing {
+    font-size: 1.125rem;
   }
 }
 
@@ -516,7 +593,7 @@ section {
   }
 }
 .about-text .big {
-  color: oklch(0.97 0.01 80 / 0.95);
+  color: oklch(0.18 0.015 60 / 0.95);
   font-size: 1.25rem;
 }
 .about-text .closing {
@@ -537,7 +614,7 @@ section {
 .about-card {
   border-radius: 0.75rem;
   border: 1px solid var(--border);
-  background: oklch(0.19 0.014 60 / 0.6);
+  background: oklch(0.97 0.008 80 / 0.6);
   backdrop-filter: blur(8px);
   padding: 1.5rem;
   box-shadow: var(--shadow-elev);
@@ -559,7 +636,7 @@ section {
 }
 .rhythm-box {
   border-radius: 0.5rem;
-  background: oklch(0.13 0.01 60 / 0.6);
+  background: oklch(0.94 0.01 80 / 0.6);
   border: 1px solid var(--border);
   padding: 1.25rem;
 }
@@ -582,13 +659,48 @@ section {
 }
 .pillar {
   border-radius: var(--radius);
-  border: 1px solid oklch(0.28 0.015 60 / 0.7);
+  border: 1px solid oklch(0.82 0.015 70 / 0.7);
   padding: 0.75rem 0;
   font-size: 0.75rem;
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--muted-foreground);
+}
+
+/* ---------- Mind Spirit Wealth ---------- */
+.msw-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .msw-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.msw-card {
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 2rem;
+  transition: border-color 0.2s;
+}
+.msw-card:hover {
+  border-color: oklch(0.7 0.16 70 / 0.4);
+}
+.msw-icon {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.msw-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.msw-card p {
+  color: var(--muted-foreground);
+  line-height: 1.7;
 }
 
 /* ---------- Ecosystem ---------- */
@@ -618,7 +730,7 @@ section {
   transition: border-color 0.2s;
 }
 .eco-card:hover {
-  border-color: oklch(0.82 0.18 70 / 0.4);
+  border-color: oklch(0.7 0.16 70 / 0.4);
 }
 .eco-card-glow {
   position: absolute;
@@ -627,7 +739,7 @@ section {
   transition: opacity 0.2s;
   background: linear-gradient(
     to bottom right,
-    oklch(0.82 0.18 70 / 0.1),
+    oklch(0.7 0.16 70 / 0.1),
     transparent
   );
   pointer-events: none;
@@ -655,7 +767,7 @@ section {
 .eco-icon {
   font-family: var(--font-display);
   font-size: 1.875rem;
-  color: oklch(0.82 0.18 70 / 0.7);
+  color: oklch(0.7 0.16 70 / 0.7);
 }
 .eco-card h3 {
   font-size: 1.875rem;
@@ -681,11 +793,11 @@ section {
   margin-top: 0.125rem;
 }
 .eco-point .txt {
-  color: oklch(0.97 0.01 80 / 0.85);
+  color: oklch(0.18 0.015 60 / 0.85);
 }
 .eco-note {
   padding-top: 1.5rem;
-  border-top: 1px solid oklch(0.28 0.015 60 / 0.6);
+  border-top: 1px solid oklch(0.82 0.015 70 / 0.6);
   font-family: var(--font-display);
   font-size: 0.875rem;
   letter-spacing: -0.02em;
@@ -721,7 +833,7 @@ section {
   color: var(--muted-foreground);
 }
 .tab-text .body .lead {
-  color: oklch(0.97 0.01 80 / 0.95);
+  color: oklch(0.18 0.015 60 / 0.95);
 }
 .tab-actions {
   margin-top: 2rem;
@@ -741,7 +853,7 @@ section {
   aspect-ratio: 1 / 1;
   border-radius: 1rem;
   border: 1px solid var(--border);
-  background: oklch(0.19 0.014 60 / 0.6);
+  background: oklch(0.97 0.008 80 / 0.6);
   backdrop-filter: blur(8px);
   overflow: hidden;
   box-shadow: var(--shadow-elev);
@@ -756,7 +868,7 @@ section {
   inset: 0;
   background: linear-gradient(
     to bottom right,
-    oklch(0.82 0.18 70 / 0.2),
+    oklch(0.7 0.16 70 / 0.2),
     transparent,
     transparent
   );
@@ -786,7 +898,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
   width: 100%;
 }
 .tab-visual-content .infinity-icon {
@@ -794,7 +905,6 @@ section {
   height: 6rem;
   max-width: 100%;
   color: var(--primary);
-  margin: 0 auto;
 }
 @media (max-width: 767px) {
   .tab-visual-content .infinity-icon {
@@ -806,15 +916,11 @@ section {
   font-family: var(--font-display);
   font-size: 1.5rem;
   letter-spacing: -0.02em;
-  text-align: center;
-  margin: 0 auto;
 }
 .tab-visual-content .desc {
   font-size: 0.875rem;
   color: var(--muted-foreground);
   max-width: 20rem;
-  text-align: center;
-  margin: 0 auto;
 }
 
 /* ---------- Community ---------- */
@@ -885,13 +991,13 @@ section {
   transition: all 0.2s;
 }
 .community-link:hover {
-  border-color: oklch(0.82 0.18 70 / 0.4);
+  border-color: oklch(0.7 0.16 70 / 0.4);
   color: var(--primary);
 }
 .community-side {
   border-radius: 1rem;
   border: 1px solid var(--border);
-  background: oklch(0.19 0.014 60 / 0.6);
+  background: oklch(0.97 0.008 80 / 0.6);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -906,13 +1012,13 @@ section {
   margin-bottom: 0.75rem;
 }
 .community-side p {
-  color: oklch(0.97 0.01 80 / 0.9);
+  color: oklch(0.18 0.015 60 / 0.9);
 }
 .player {
   margin-top: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border);
-  background: oklch(0.13 0.01 60 / 0.6);
+  background: oklch(0.94 0.01 80 / 0.6);
   padding: 1rem;
 }
 .player-row {
@@ -969,7 +1075,7 @@ section {
   align-items: baseline;
   border-radius: 0.75rem;
   border: 1px solid var(--border);
-  background: oklch(0.17 0.012 60 / 0.6);
+  background: oklch(0.97 0.008 80 / 0.6);
   padding: 1.5rem;
   transition: all 0.2s;
 }
@@ -981,12 +1087,12 @@ section {
 }
 .roadmap-item:hover {
   background: var(--card);
-  border-color: oklch(0.82 0.18 70 / 0.4);
+  border-color: oklch(0.7 0.16 70 / 0.4);
 }
 .roadmap-num {
   font-family: var(--font-display);
   font-size: 3rem;
-  color: oklch(0.82 0.18 70 / 0.8);
+  color: oklch(0.7 0.16 70 / 0.8);
   transition: color 0.2s;
 }
 .roadmap-item:hover .roadmap-num {
@@ -1026,6 +1132,76 @@ section {
   }
 }
 
+/* ---------- Social Proof ---------- */
+.proof-stats {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+  .proof-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.proof-stat {
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: oklch(0.97 0.008 80 / 0.6);
+  padding: 1.5rem;
+  text-align: center;
+}
+.proof-num {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  color: var(--primary);
+}
+.proof-label {
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted-foreground);
+}
+.proof-note {
+  margin-top: 2rem;
+  max-width: 42rem;
+  color: var(--muted-foreground);
+}
+
+/* ---------- Closing Statement ---------- */
+.closing-section {
+  text-align: center;
+}
+.closing-inner {
+  max-width: 42rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.closing-inner p {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+}
+.closing-pillars {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--foreground) !important;
+}
+.closing-final {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 768px) {
+  .closing-final {
+    font-size: 3rem;
+  }
+}
+
 /* ---------- CTA ---------- */
 .cta-section {
   overflow: hidden;
@@ -1044,7 +1220,7 @@ section {
   background: linear-gradient(
     to right,
     transparent,
-    oklch(0.82 0.18 70 / 0.6),
+    oklch(0.7 0.16 70 / 0.6),
     transparent
   );
 }
