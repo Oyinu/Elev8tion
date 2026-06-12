@@ -1058,8 +1058,9 @@ section {
 }
 .player-bar-fill {
   height: 100%;
-  width: 33%;
+  width: 0%;
   background: var(--primary);
+  transition: width 0.1s linear;
 }
 
 /* ---------- Roadmap ---------- */

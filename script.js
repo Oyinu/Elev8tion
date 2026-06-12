@@ -99,3 +99,45 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+
+// Audio player
+const audio = document.getElementById("theme-audio");
+const playBtn = document.getElementById("play-btn");
+const barFill = document.getElementById("player-bar-fill");
+
+if (audio && playBtn && barFill) {
+  playBtn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      playBtn.textContent = "⏸";
+      playBtn.setAttribute("aria-label", "Pause theme");
+    } else {
+      audio.pause();
+      playBtn.textContent = "▶";
+      playBtn.setAttribute("aria-label", "Play theme");
+    }
+  });
+
+  audio.addEventListener("timeupdate", () => {
+    if (audio.duration) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      barFill.style.width = pct + "%";
+    }
+  });
+
+  audio.addEventListener("ended", () => {
+    playBtn.textContent = "▶";
+    playBtn.setAttribute("aria-label", "Play theme");
+    barFill.style.width = "0%";
+  });
+
+  // Allow seeking by clicking the bar
+  const playerBar = barFill.parentElement;
+  playerBar.style.cursor = "pointer";
+  playerBar.addEventListener("click", (e) => {
+    if (!audio.duration) return;
+    const rect = playerBar.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = ratio * audio.duration;
+  });
+}
