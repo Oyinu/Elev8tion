@@ -519,7 +519,8 @@ var(--purple2)
 .mascot-wrap {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 580px;
+  margin: 0 auto 10px;
 }
 /* big glow blob behind mascot */
 .mascot-glow {
@@ -540,6 +541,11 @@ var(--purple2)
   animation: glow-pulse 3s ease-in-out infinite;
   z-index: 0;
 }
+.hero-right-mascot{
+  width: 80%;
+  height: 50%;
+  border-radius: 25px;
+}
 @keyframes glow-pulse {
   0%,
   100% {
@@ -551,7 +557,7 @@ var(--purple2)
     opacity: 1;
   }
 }
-.mascot-img {
+.mascot-img, .hero-right-mascot {
   position: relative;
   z-index: 1;
   width: 100%;
